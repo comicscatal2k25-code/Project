@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Bangers:wght@400&family=Comic+Neue:wght@300;400;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Comic-themed color scheme - Panel & Pop! */
+  --background: oklch(0.98 0.01 240);
+  --foreground: oklch(0.15 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+  --primary: oklch(0.45 0.25 260); /* Deep indigo */
+  --primary-foreground: oklch(0.98 0.01 240);
+  --secondary: oklch(0.95 0.02 240);
+  --secondary-foreground: oklch(0.25 0.02 260);
+  --muted: oklch(0.95 0.02 240);
+  --muted-foreground: oklch(0.55 0.02 260);
+  --accent: oklch(0.65 0.25 15); /* Pop red */
+  --accent-foreground: oklch(0.98 0.01 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 240);
+  --border: oklch(0.92 0.02 240);
+  --input: oklch(0.92 0.02 240);
+  --ring: oklch(0.45 0.25 260);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Comic theme custom colors */
+  --comic-yellow: oklch(0.85 0.15 85); /* Golden yellow */
+  --comic-teal: oklch(0.65 0.15 180); /* Teal accent */
+  --comic-panel-bg: oklch(0.97 0.01 240); /* Subtle panel background */
+}
+
+.dark {
+  /* Updated dark mode colors for comic theme */
+  --background: oklch(0.08 0.02 260);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.12 0.02 260);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.12 0.02 260);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.65 0.18 260);
+  --primary-foreground: oklch(0.08 0.02 260);
+  --secondary: oklch(0.18 0.02 260);
+  --secondary-foreground: oklch(0.95 0.01 240);
+  --muted: oklch(0.18 0.02 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+  --accent: oklch(0.75 0.15 320);
+  --accent-foreground: oklch(0.08 0.02 260);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.95 0.01 240);
+  --border: oklch(0.18 0.02 260);
+  --input: oklch(0.18 0.02 260);
+  --ring: oklch(0.65 0.18 260);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.02) 0%, transparent 50%);
+  }
+  
+  /* Comic-themed typography */
+  .comic-title {
+    font-family: 'Bangers', cursive;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comic-heading {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  
+  .comic-body {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 400;
+  }
+  
+  /* Comic panel styling */
+  .comic-panel {
+    background: var(--comic-panel-bg);
+    border: 3px solid oklch(0.2 0.1 260);
+    border-radius: 12px;
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Comic button styling */
+  .comic-button {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    border: 3px solid oklch(0.2 0.1 260);
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .comic-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Comic card animations */
+  .comic-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+  }
+  
+  .comic-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    border-color: var(--comic-yellow);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px var(--comic-yellow);
+  }
+  
+  /* Comic cover hover effect */
+  .comic-cover {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .comic-cover:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Comic badge styling */
+  .comic-badge {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    border: 2px solid oklch(0.2 0.1 260);
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+  }
+  
+  /* Page turn animation */
+  @keyframes page-turn {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(-5deg); }
+    100% { transform: rotateY(0deg); }
+  }
+  
+  .page-turn:hover {
+    animation: page-turn 0.6s ease-in-out;
+  }
+  
+  /* Comic grid layout */
+  .comic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* Comic stats styling */
+  .comic-stat {
+    background: linear-gradient(135deg, var(--comic-yellow) 0%, var(--comic-teal) 100%);
+    border: 3px solid oklch(0.2 0.1 260);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Comic filter styling */
+  .comic-filter {
+    background: var(--comic-panel-bg);
+    border: 2px solid oklch(0.2 0.1 260);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+}
